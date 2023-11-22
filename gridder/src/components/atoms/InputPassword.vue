@@ -1,5 +1,5 @@
 <template>
-  <input type="password" id="userPassword" class="input">
+  <input type="text" id="userPassword" class="input" placeholder="Digite seu nome de usuário">
 </template>
 
 <script lang="ts">

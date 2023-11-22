@@ -43,13 +43,14 @@
     justify-content: center;
     padding: 2%;
     gap: 0.5rem;
-    width: 70%;
+    width: 26rem;
     height: 30rem;
   }
   .LoginForm > .input {
+    padding: 0px 2rem;
     height: 3rem;
-    width: 100%;
     border-radius: 0.5rem;
+    outline: none;
   }
   .LoginForm > button.default-button {
     border-radius: 0.5rem;
