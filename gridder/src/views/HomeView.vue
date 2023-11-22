@@ -33,18 +33,16 @@
     text-align: center;
   }
   main.home {
-    border: 1px solid blue;
+    height: 80vh;
   }
   .LoginForm {
-    border: 1px solid red;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2%;
     gap: 0.5rem;
-    width: 26rem;
-    height: 30rem;
+    width: 22rem;
+    height: 100%;
   }
   .LoginForm > .input {
     padding: 0px 2rem;
