@@ -1,5 +1,5 @@
 <template>
-  <input type="email" id="userEmail" class="input">
+  <input type="text" id="userEmail" class="input" :placeholder="placeholder">
 </template>
 
 <script lang="ts">
@@ -11,5 +11,13 @@
         
       }
     },
+    props: {
+      placeholder: String
+    },
+    data() {
+      return {
+        userName: String,
+      }
+    }
   })
 </script>

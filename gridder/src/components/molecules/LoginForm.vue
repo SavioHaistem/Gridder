@@ -1,24 +1,26 @@
 <template>
   <form action="" class="form-body">
     <h1 class="title">{{ FormMsg }}</h1>
-    <InputPassword />
+    <h3>{{ getUserName }}</h3>
+    <InputEmail placeholder="Digite seu nome de usuário"></InputEmail>
     <DefaulButton button-name="Login"/>
   </form>
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import InputPassword from '../atoms/InputPassword.vue'
   import InputEmail from '../atoms/InputEmail.vue'
   import DefaulButton from '../atoms/DefaulButton.vue'
+  import { mapState } from 'pinia'
+  import { useLoginStore } from '@/stores/Login'
 
   export default defineComponent({
-    setup() {
-      return {}
-    },
     props: {
       FormMsg: String
     },
-    components: { InputPassword, InputEmail, DefaulButton },
+    components: { InputEmail, DefaulButton },
+    computed: {
+      ...mapState(useLoginStore,['getUserName']),
+    },
   })
 </script>

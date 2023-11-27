@@ -45,12 +45,17 @@
     height: 100%;
   }
   .LoginForm > .input {
+    font-size: 16px;
     padding: 0px 2rem;
     height: 3rem;
     border-radius: 0.5rem;
     outline: none;
   }
   .LoginForm > button.default-button {
+    cursor: pointer;
     border-radius: 0.5rem;
+  }
+  h3 {
+    color: wheat;
   }
 </style>

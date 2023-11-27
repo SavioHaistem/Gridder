@@ -1,9 +1,11 @@
 <template>
-  <Button class="default-button input">{{ buttonName }}</Button>
+  <Button class="default-button input" :onclick="login">{{ buttonName }}</Button>
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue'
+  import { useLoginStore } from '@/stores/Login';
+  import { mapActions } from 'pinia';
 
   export default defineComponent({
     setup() {
@@ -11,6 +13,13 @@
     },
     props: {
       buttonName: String
+    },
+    methods: {
+      ...mapActions(useLoginStore, ['setUser']),
+      login(e: any) {
+        e.preventDefault();
+        this.setUser({ userName: "Savio" });
+      }
     }
   })
 </script>
