@@ -2,7 +2,7 @@
   <form action="" class="form-body">
     <h1 class="title">{{ FormMsg }}</h1>
     <h3>{{ getUserName }}</h3>
-    <InputEmail placeholder="Digite seu nome de usuário"></InputEmail>
+    <InputEmail placeholder="Digite seu nome de usuário" @type-user="typedName"></InputEmail>
     <DefaulButton button-name="Login"/>
   </form>
 </template>
@@ -11,16 +11,23 @@
   import { defineComponent } from 'vue'
   import InputEmail from '../atoms/InputEmail.vue'
   import DefaulButton from '../atoms/DefaulButton.vue'
-  import { mapState } from 'pinia'
+  import { mapState, mapActions } from 'pinia'
   import { useLoginStore } from '@/stores/Login'
 
   export default defineComponent({
     props: {
       FormMsg: String
     },
+    data() {
+      userName: String
+    },
     components: { InputEmail, DefaulButton },
     computed: {
       ...mapState(useLoginStore,['getUserName']),
+      ...mapActions(useLoginStore,['setUser']),
+      typedName(name: String) {
+        this.setUser({ userName: name });
+      }
     },
   })
 </script>

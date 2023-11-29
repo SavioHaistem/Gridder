@@ -1,23 +1,30 @@
 <template>
-  <input type="text" id="userEmail" class="input" :placeholder="placeholder">
+  <input
+    type="text"
+    id="userEmail"
+    class="input"
+    :placeholder="placeholder"
+    v-model="userName"
+    @change="changeName"
+  />
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue'
 
   export default defineComponent({
-    setup() {
-      return {
-        
-      }
-    },
     props: {
-      placeholder: String
+      placeholder: String,
     },
     data() {
       return {
-        userName: String,
+        userName: '',
       }
-    }
+    },
+    methods: {
+      changeName() {
+        this.$emit('type-user', this.userName)
+      },
+    },
   })
 </script>

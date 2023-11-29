@@ -1,5 +1,5 @@
 <template>
-  <Button class="default-button input" :onclick="login">{{ buttonName }}</Button>
+  <Button class="default-button input">{{ buttonName }}</Button>
 </template>
 
 <script lang="ts">
@@ -8,17 +8,13 @@
   import { mapActions } from 'pinia';
 
   export default defineComponent({
-    setup() {
-      return {}
-    },
     props: {
       buttonName: String
     },
     methods: {
       ...mapActions(useLoginStore, ['setUser']),
-      login(e: any) {
+      onClick(e: any) {
         e.preventDefault();
-        this.setUser({ userName: "Savio" });
       }
     }
   })
