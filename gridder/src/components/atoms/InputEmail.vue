@@ -23,7 +23,7 @@
     },
     methods: {
       changeName() {
-        this.$emit('type-user', this.userName)
+        this.$emit('type-user', this.userName);
       },
     },
   })

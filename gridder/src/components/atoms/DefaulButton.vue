@@ -1,20 +1,23 @@
 <template>
-  <Button class="default-button input">{{ buttonName }}</Button>
+  <Button class="default-button input" @click="onClick">{{ buttonName }}</Button>
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue'
   import { useLoginStore } from '@/stores/Login';
-  import { mapActions } from 'pinia';
+  import { mapState } from 'pinia';
 
   export default defineComponent({
     props: {
       buttonName: String
     },
+    computed: {
+      ...mapState(useLoginStore,['getUserName'])
+    },
     methods: {
-      ...mapActions(useLoginStore, ['setUser']),
       onClick(e: any) {
         e.preventDefault();
+        this.$emit('onLogin');
       }
     }
   })
